@@ -27,20 +27,19 @@ function Home() {
 
   const handleSearch = async (e) => {
     e.preventDefault();
-    if (!searchQuery.trim()) return
-    if (loading) return
+    if (!searchQuery.trim()) return;
+    if (loading) return;
 
-    setLoading(true)
-    try{
-      const searchResults = await searchMovies(searchQuery)
-      setMovies(searchResults)
-      setError(null)
+    setLoading(true);
+    try {
+      const searchResults = await searchMovies(searchQuery);
+      setMovies(searchResults);
+      setError(null);
     } catch {
       console.log(err);
-      setError('Failed to search movies...')
-      
+      setError('Failed to search movies...');
     } finally {
-      setLoading(false)
+      setLoading(false);
     }
   };
 
